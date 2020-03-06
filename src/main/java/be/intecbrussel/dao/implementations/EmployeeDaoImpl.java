@@ -2,17 +2,17 @@ package be.intecbrussel.dao.implementations;
 
 import be.intecbrussel.config.ConnectionProvider;
 import be.intecbrussel.custom_exception.CustomException;
-import be.intecbrussel.dao.interfaces.EmployeeDao;
-import be.intecbrussel.model.Company;
+import be.intecbrussel.dao.interfaces.Dao;
 import be.intecbrussel.model.Employee;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class EmployeeDaoImpl implements EmployeeDao {
+public class EmployeeDaoImpl implements Dao<Employee> {
+
+    //Connecting the already configured connection
     public Connection createConnection() throws SQLException {
         return ConnectionProvider.getInstance().getConnection();
     }
@@ -30,17 +30,12 @@ public class EmployeeDaoImpl implements EmployeeDao {
             preparedStatement.execute();
         } catch (SQLException se) {
             System.out.println(se.getMessage());
-            throw new CustomException("Something went wrong");
+            throw new CustomException();
         }
     }
 
     @Override
     public Employee readyById(int id) throws CustomException {
-        return null;
-    }
-
-    @Override
-    public Employee readById(int id) {
         return null;
     }
 

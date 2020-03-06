@@ -10,6 +10,7 @@ import java.util.List;
 
 public class CompanyDaoImpl implements CompanyDao {
 
+    //Connecting the already configured connection.
     public Connection createConnection() throws SQLException {
         return ConnectionProvider.getInstance().getConnection();
     }
@@ -17,6 +18,7 @@ public class CompanyDaoImpl implements CompanyDao {
 
     @Override
     public Company createAndReturnCompany(Company company) throws CustomException {
+
         try (PreparedStatement preparedStatement = createConnection()
                 .prepareStatement("INSERT INTO  company_db.companies(name) VALUES(?)"
                         , PreparedStatement.RETURN_GENERATED_KEYS)) {
