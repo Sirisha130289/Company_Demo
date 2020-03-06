@@ -1,4 +1,4 @@
-package be.intecbrussel.dao;
+package be.intecbrussel.dao.interfaces;
 
 import be.intecbrussel.model.Company;
 import be.intecbrussel.model.Employee;
